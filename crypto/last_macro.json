@@ -1,0 +1,601 @@
+{
+  "asof": "2026-08-24",
+  "rules": {
+    "BTC SMA200 + mom126 (tecnico)": {
+      "metrics": {
+        "cagr": 0.1863,
+        "vol": 0.4156,
+        "sharpe": 0.62,
+        "maxdd": -0.5914,
+        "calmar": 0.32,
+        "final": 7867.49,
+        "years": 5.64
+      },
+      "bear_2022": {
+        "cagr": -0.1823,
+        "vol": 0.1537,
+        "sharpe": -1.23,
+        "maxdd": -0.2635,
+        "calmar": -0.69,
+        "final": 3065.14,
+        "years": 1.0
+      },
+      "oos_2024": {
+        "cagr": 0.1769,
+        "vol": 0.3568,
+        "sharpe": 0.63,
+        "maxdd": -0.3674,
+        "calmar": 0.48,
+        "final": 7867.49,
+        "years": 2.64
+      },
+      "time_long": 0.531,
+      "holdings": [
+        {
+          "date": "2025-09-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-10-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-11-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-12-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-01-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-02-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-03-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-04-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-05-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-06-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-07-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-08-01",
+          "hold": "CASH"
+        }
+      ],
+      "today": {
+        "date": "2026-08-01",
+        "hold": "CASH"
+      }
+    },
+    "Tipos 10y bajando 60d": {
+      "metrics": {
+        "cagr": 0.1377,
+        "vol": 0.341,
+        "sharpe": 0.55,
+        "maxdd": -0.4303,
+        "calmar": 0.32,
+        "final": 6211.68,
+        "years": 5.64
+      },
+      "bear_2022": {
+        "cagr": -0.1478,
+        "vol": 0.284,
+        "sharpe": -0.42,
+        "maxdd": -0.2635,
+        "calmar": -0.56,
+        "final": 2916.13,
+        "years": 1.0
+      },
+      "oos_2024": {
+        "cagr": 0.1326,
+        "vol": 0.3207,
+        "sharpe": 0.55,
+        "maxdd": -0.3103,
+        "calmar": 0.43,
+        "final": 6211.68,
+        "years": 2.64
+      },
+      "time_long": 0.415,
+      "holdings": [
+        {
+          "date": "2025-09-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-10-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-11-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-12-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-01-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-02-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-03-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-04-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-05-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-06-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-07-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-08-01",
+          "hold": "CASH"
+        }
+      ],
+      "today": {
+        "date": "2026-08-01",
+        "hold": "CASH"
+      }
+    },
+    "Dolar bajando 60d": {
+      "metrics": {
+        "cagr": 0.0458,
+        "vol": 0.3248,
+        "sharpe": 0.3,
+        "maxdd": -0.5078,
+        "calmar": 0.09,
+        "final": 3862.68,
+        "years": 5.64
+      },
+      "bear_2022": {
+        "cagr": -0.0447,
+        "vol": 0.0735,
+        "sharpe": -0.58,
+        "maxdd": -0.0782,
+        "calmar": -0.57,
+        "final": 3089.63,
+        "years": 1.0
+      },
+      "oos_2024": {
+        "cagr": -0.0374,
+        "vol": 0.3601,
+        "sharpe": 0.07,
+        "maxdd": -0.5078,
+        "calmar": -0.07,
+        "final": 3862.68,
+        "years": 2.64
+      },
+      "time_long": 0.384,
+      "holdings": [
+        {
+          "date": "2025-09-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2025-10-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-11-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2025-12-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-01-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-02-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-03-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-04-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-05-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-06-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-07-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-08-01",
+          "hold": "CASH"
+        }
+      ],
+      "today": {
+        "date": "2026-08-01",
+        "hold": "CASH"
+      }
+    },
+    "Nasdaq QQQ > SMA200": {
+      "metrics": {
+        "cagr": 0.2232,
+        "vol": 0.4964,
+        "sharpe": 0.65,
+        "maxdd": -0.6271,
+        "calmar": 0.36,
+        "final": 9350.15,
+        "years": 5.64
+      },
+      "bear_2022": {
+        "cagr": -0.2189,
+        "vol": 0.1703,
+        "sharpe": -1.36,
+        "maxdd": -0.2635,
+        "calmar": -0.83,
+        "final": 4062.5,
+        "years": 1.0
+      },
+      "oos_2024": {
+        "cagr": 0.0832,
+        "vol": 0.4556,
+        "sharpe": 0.4,
+        "maxdd": -0.6271,
+        "calmar": 0.13,
+        "final": 9350.15,
+        "years": 2.64
+      },
+      "time_long": 0.793,
+      "holdings": [
+        {
+          "date": "2025-09-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-10-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-11-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-12-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-01-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-02-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-03-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-04-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-05-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-06-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-07-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-08-01",
+          "hold": "LONG BTC"
+        }
+      ],
+      "today": {
+        "date": "2026-08-01",
+        "hold": "LONG BTC"
+      }
+    },
+    "Tipos bajando Y Nasdaq alcista": {
+      "metrics": {
+        "cagr": 0.0418,
+        "vol": 0.3139,
+        "sharpe": 0.29,
+        "maxdd": -0.4303,
+        "calmar": 0.1,
+        "final": 3779.03,
+        "years": 5.64
+      },
+      "bear_2022": {
+        "cagr": -0.2189,
+        "vol": 0.1703,
+        "sharpe": -1.36,
+        "maxdd": -0.2635,
+        "calmar": -0.83,
+        "final": 2673.69,
+        "years": 1.0
+      },
+      "oos_2024": {
+        "cagr": 0.0992,
+        "vol": 0.3022,
+        "sharpe": 0.46,
+        "maxdd": -0.3103,
+        "calmar": 0.32,
+        "final": 3779.03,
+        "years": 2.64
+      },
+      "time_long": 0.355,
+      "holdings": [
+        {
+          "date": "2025-09-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-10-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-11-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-12-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-01-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-02-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-03-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-04-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-05-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-06-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-07-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-08-01",
+          "hold": "CASH"
+        }
+      ],
+      "today": {
+        "date": "2026-08-01",
+        "hold": "CASH"
+      }
+    },
+    "Liquidez: tipos O dolar bajando": {
+      "metrics": {
+        "cagr": 0.0341,
+        "vol": 0.3944,
+        "sharpe": 0.28,
+        "maxdd": -0.5852,
+        "calmar": 0.06,
+        "final": 3625.32,
+        "years": 5.64
+      },
+      "bear_2022": {
+        "cagr": -0.1478,
+        "vol": 0.284,
+        "sharpe": -0.42,
+        "maxdd": -0.2635,
+        "calmar": -0.56,
+        "final": 3342.04,
+        "years": 1.0
+      },
+      "oos_2024": {
+        "cagr": -0.0805,
+        "vol": 0.3825,
+        "sharpe": -0.03,
+        "maxdd": -0.5852,
+        "calmar": -0.14,
+        "final": 3625.32,
+        "years": 2.64
+      },
+      "time_long": 0.548,
+      "holdings": [
+        {
+          "date": "2025-09-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-10-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-11-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-12-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-01-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-02-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-03-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-04-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-05-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-06-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2026-07-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-08-01",
+          "hold": "CASH"
+        }
+      ],
+      "today": {
+        "date": "2026-08-01",
+        "hold": "CASH"
+      }
+    },
+    "Macro+tecnico (tipos\u2193 y BTC SMA200)": {
+      "metrics": {
+        "cagr": -0.0259,
+        "vol": 0.219,
+        "sharpe": -0.01,
+        "maxdd": -0.3904,
+        "calmar": -0.07,
+        "final": 2587.72,
+        "years": 5.64
+      },
+      "bear_2022": {
+        "cagr": -0.1823,
+        "vol": 0.1537,
+        "sharpe": -1.23,
+        "maxdd": -0.2635,
+        "calmar": -0.69,
+        "final": 2031.82,
+        "years": 1.0
+      },
+      "oos_2024": {
+        "cagr": 0.0587,
+        "vol": 0.2416,
+        "sharpe": 0.36,
+        "maxdd": -0.3103,
+        "calmar": 0.19,
+        "final": 2587.72,
+        "years": 2.64
+      },
+      "time_long": 0.222,
+      "holdings": [
+        {
+          "date": "2025-09-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-10-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-11-01",
+          "hold": "LONG BTC"
+        },
+        {
+          "date": "2025-12-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-01-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-02-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-03-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-04-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-05-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-06-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-07-01",
+          "hold": "CASH"
+        },
+        {
+          "date": "2026-08-01",
+          "hold": "CASH"
+        }
+      ],
+      "today": {
+        "date": "2026-08-01",
+        "hold": "CASH"
+      }
+    }
+  },
+  "today_macro": {
+    "tnx": 4.738,
+    "tnx_chg60": 0.0788,
+    "dxy": 99.01,
+    "dxy_chg60": -0.0239,
+    "qqq": 713.44,
+    "qqq_above_sma": true
+  }
+}
