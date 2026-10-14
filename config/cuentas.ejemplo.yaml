@@ -1,0 +1,40 @@
+# Cuentas de paper. Los parámetros de E1 no viven aquí: están fijados en
+# investing/strategies/e1_tsmom.py y son los del backtest
+# (L252, σ objetivo 10 %, tope 40 % por ETF, banda 5 puntos, apalancamiento 1×).
+# Añadir una clave "parametros" hace fallar la carga, para que no se cambien de tapadillo.
+
+divisa: EUR
+
+cuentas:
+  cuenta_3k:
+    capital_eur: 3000
+    descripcion: "Fase 1. E1 solo con SPYL y PPFB."
+    estrategias:
+      - id: E1
+        tipo: e1_tsmom
+        universo: [SPYL, PPFB]
+        presupuesto_riesgo: 1.0
+
+  cuenta_10k:
+    capital_eur: 10000
+    descripcion: "Fase 1 de esta PR. E1 con los cuatro UCITS (SPYL, PPFB, SXRM, SXRS)."
+    estrategias:
+      - id: E1
+        tipo: e1_tsmom
+        universo: [SPYL, PPFB, SXRM, SXRS]
+        presupuesto_riesgo: 1.0
+
+# El marco de riesgo (v1.2, cartera K') reparte la cuenta de 10k al 50 % entre
+# la variante de 4 ETF y la de 2. El agregador ya puede expresarlo; no está
+# activo en este ejemplo porque esta PR asigna a la cuenta de 10k el universo de 4.
+# Para activar K' bastaría con sustituir las estrategias de cuenta_10k por:
+#
+#   estrategias:
+#     - id: E1_4act
+#       tipo: e1_tsmom
+#       universo: [SPYL, PPFB, SXRM, SXRS]
+#       presupuesto_riesgo: 0.5
+#     - id: E1_2act
+#       tipo: e1_tsmom
+#       universo: [SPYL, PPFB]
+#       presupuesto_riesgo: 0.5
