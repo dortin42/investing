@@ -1,0 +1,27 @@
+[project]
+name = "investing"
+version = "0.1.0"
+description = "Esqueleto del sistema de trading en paper y señal E1 (TSMOM) para ETFs UCITS en Xetra."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ib_async>=1.0",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "pyyaml>=6",
+    "pytest>=8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
