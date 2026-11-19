@@ -72,6 +72,19 @@ Nota managed futures: la clase de Xetra (MFEH) solo tenía 62 días de datos
 5. **Python del sistema no existe**; se usa el entorno conda `gtaa`
    (Anaconda en `C:\Users\Daniel\anaconda3`, sin conda en PATH):
    `C:\Users\Daniel\anaconda3\envs\gtaa\python.exe`.
+7. **Una sola sesión por usuario IB.** El Gateway del VPS (Hetzner,
+   `/opt/gtaa-bot`, contenedor `gtaa-ib-gateway-1`) y TWS en el PC usan el
+   mismo usuario paper (DUQ542136). El 17-10-2026 el Gateway perdió el login,
+   IBC se quedó parado en un diálogo y estuvo un mes muerto con el contenedor
+   "Up" y el puerto abierto (falló el rebalanceo del 02-11). Desde el 19-11
+   manda el VPS: no abrir TWS paper en el PC; operar desde el PC con
+   `ssh -N -L 4002:127.0.0.1:4002 root@188.245.6.66` y `--port 4002`.
+   `deploy/gateway_watchdog.sh` (cron :15 y :45) prueba el handshake real de
+   la API y reinicia el contenedor si no responde (máx. 1 vez cada 2 h) y avisa
+   por Telegram. Si el rebalanceo no conecta, también avisa por Telegram.
+8. **Tick de Xetra por tramos**: EQAC (regla 1874) va de 0,05 en 0,05 entre
+   200 y 500 €; un límite redondeado al céntimo se rechaza (Cancelled). El
+   bot ajusta el límite a la regla de precios de IB de cada bolsa.
 6. Precio por participación vs slot (~900 € con 3k×1.2/4): EQAC a ~446 €
    solo permite 2 participaciones (granularidad gruesa); IS04 a 2,66 € va
    finísimo. El bot avisa si una participación no cabe en el slot.

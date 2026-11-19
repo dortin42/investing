@@ -111,13 +111,62 @@ class Broker:
 
     # ---------- ordenes ----------
 
+    def price_increment(self, contract, price: float) -> float:
+        """Tick minimo de `contract` en su bolsa para ese nivel de precio.
+
+        Xetra usa tablas por tramos: EQAC (regla 1874) cotiza de 0,05 en 0,05
+        entre 200 y 500 EUR. Un limite como 423,37 se rechaza (error 110) y la
+        orden sale como Cancelled.
+        """
+        if not hasattr(self, "_rules"):
+            self._rules = {}
+        key = (contract.conId, contract.exchange)
+        if key not in self._rules:
+            rule = []
+            details = self.ib.reqContractDetails(contract)
+            if details:
+                d = details[0]
+                by_exchange = dict(zip(d.validExchanges.split(","),
+                                       d.marketRuleIds.split(",")))
+                rule_id = by_exchange.get(contract.exchange)
+                if rule_id:
+                    rule = sorted((r.lowEdge, r.increment)
+                                  for r in self.ib.reqMarketRule(int(rule_id)))
+                if not rule and d.minTick:
+                    rule = [(0.0, d.minTick)]
+            self._rules[key] = rule or [(0.0, 0.01)]
+        increment = self._rules[key][0][1]
+        for low_edge, inc in self._rules[key]:
+            if price >= low_edge:
+                increment = inc
+        return increment
+
+    def limit_price(self, contract, side: str, ref_price: float,
+                    buffer: float) -> float:
+        """Limite marketable ajustado al tick de la bolsa.
+
+        Se redondea hacia el lado marketable (compras arriba, ventas abajo):
+        como mucho un tick mas alla del buffer.
+        """
+        factor = 1 + buffer if side == "BUY" else 1 - buffer
+        raw = ref_price * factor
+        tick = self.price_increment(contract, raw)
+        steps = raw / tick
+        steps = math.ceil(steps - 1e-9) if side == "BUY" else math.floor(steps + 1e-9)
+        decimals = max(0, -math.floor(math.log10(tick)) + 1)
+        return round(steps * tick, decimals)
+
     def place_limit(self, contract, side: str, qty: int, ref_price: float,
                     buffer: float):
         """Limite marketable: cruza el spread con proteccion de precio."""
-        factor = 1 + buffer if side == "BUY" else 1 - buffer
-        limit_price = round(ref_price * factor, 2)
-        order = LimitOrder(side, qty, limit_price, tif="DAY")
+        limit = self.limit_price(contract, side, ref_price, buffer)
+        order = LimitOrder(side, qty, limit, tif="DAY")
         return self.ib.placeOrder(contract, order)
+
+    def open_orders(self, conids: set[int]) -> list:
+        """Ordenes vivas en la cuenta (de cualquier cliente) sobre esos contratos."""
+        return [t for t in self.ib.reqAllOpenOrders()
+                if t.contract.conId in conids and not t.isDone()]
 
     def wait_for_fills(self, trades: list, timeout_s: int) -> list:
         """Espera fills; devuelve los trades que quedaron sin completar."""

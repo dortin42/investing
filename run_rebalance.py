@@ -58,7 +58,17 @@ def main() -> int:
         print(f"{today}: no es el primer dia habil del mes, nada que hacer.")
         return 0
 
-    broker = Broker(args.host, args.port, config.IB_CLIENT_ID)
+    try:
+        broker = Broker(args.host, args.port, config.IB_CLIENT_ID)
+    except Exception as exc:
+        # Sin esto, un Gateway caido el dia del rebalanceo solo deja una traza
+        # en /var/log/gtaa.log y nadie se entera (paso el 02-11-2026).
+        msg = (f"GTAA {today}: NO se ha podido rebalancear, sin conexion a IB "
+               f"en {args.host}:{args.port} ({type(exc).__name__}: {exc})")
+        print(msg, file=sys.stderr)
+        if args.execute:
+            notify.send(msg)
+        return 2
     try:
         # --- contratos ---
         contracts = {}
@@ -150,6 +160,19 @@ def main() -> int:
             return 0
 
         # --- ejecucion ---
+        # Ordenes de una ejecucion anterior aun vivas (p. ej. lanzada fuera de
+        # horario y en cola hasta la apertura): el plan se calcula sobre las
+        # posiciones actuales, asi que repetirlas duplicaria compras/ventas.
+        live = broker.open_orders({c.conId for c in contracts.values()})
+        if live:
+            print("\n[ABORTADO] Hay ordenes vivas en IB sobre el universo; "
+                  "cancelalas en TWS o espera a que se ejecuten/venzan:")
+            for t in live:
+                print(f"  {t.order.action} {t.order.totalQuantity:g} "
+                      f"{t.contract.symbol} lmt {t.order.lmtPrice} "
+                      f"({t.orderStatus.status})")
+            return 1
+
         trades = [
             broker.place_limit(o.contract, o.side, o.qty, o.ref_price,
                                config.LIMIT_BUFFER)
@@ -162,8 +185,14 @@ def main() -> int:
                    f"(IB {ib_net_liq:,.0f})"]
         for t in trades:
             status = t.orderStatus.status
-            summary.append(f"{t.order.action} {t.order.totalQuantity} "
-                           f"{t.contract.symbol}: {status}")
+            line = (f"{t.order.action} {t.order.totalQuantity:g} "
+                    f"{t.contract.symbol} lmt {t.order.lmtPrice}: {status}")
+            # El logger de ib_async esta silenciado; el motivo del rechazo
+            # (error 110, 201...) queda en el log del trade.
+            errors = [e.message for e in t.log if e.errorCode]
+            if status in ("Cancelled", "ApiCancelled", "Inactive") and errors:
+                line += f" ({errors[-1]})"
+            summary.append(line)
 
         # Apuntar las ejecuciones ahora: IB las olvida tras el reinicio nocturno.
         last_px = {s: prices[c.conId] for s, c in contracts.items()}
